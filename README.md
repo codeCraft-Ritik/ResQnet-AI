@@ -12,7 +12,7 @@
 [![Pytest](https://img.shields.io/badge/Pytest-20%2F20%20Passed-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](tests/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-**[🌐 Interactive Live Architecture Diagram](https://resqnetai-arch.netlify.app/)** • **[🐙 GitHub Repository](https://github.com/codeCraft-Ritik/ResQnet-AI.git)** • **[📖 API Docs (Swagger)](http://localhost:8000/docs)** • **[🚀 Render Ready](render.yaml)**
+**[🌐 Interactive Live Architecture Diagram](https://resqnetai-arch.netlify.app/)** • **[🐙 GitHub Repository](https://github.com/codeCraft-Ritik/ResQnet-AI.git)** • **[🚀 Render Ready](render.yaml)**
 
 > *"From scattered signals to trusted decisions."*
 
