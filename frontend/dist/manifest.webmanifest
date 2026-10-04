@@ -1,0 +1,41 @@
+{
+  "name": "ResQNet AI — Coastal Disaster Intelligence",
+  "short_name": "ResQNet AI",
+  "description": "Autonomous Ocean & Coastal Disaster Intelligence, Verification, and Evacuation Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050811",
+  "theme_color": "#061122",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/resqnet-icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["weather", "utilities", "government"],
+  "shortcuts": [
+    {
+      "name": "Puri Location Command",
+      "url": "/location/puri",
+      "description": "View live telemetry for Puri coastal sector"
+    },
+    {
+      "name": "Live Disaster Map",
+      "url": "/map",
+      "description": "Full geospatial hazard and evacuation map"
+    },
+    {
+      "name": "Report Citizen SOS",
+      "url": "/reports",
+      "description": "Submit crowdsourced disaster report"
+    },
+    {
+      "name": "Command Center",
+      "url": "/command-center",
+      "description": "Multi-agency synchronization console"
+    }
+  ]
+}
