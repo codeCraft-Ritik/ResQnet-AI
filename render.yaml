@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: resqnet-ai
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt && cd frontend && npm install && npm run build && cd .."
+    startCommand: "python run.py"
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATA_MODE
+        value: live
+      - key: APP_ENV
+        value: production

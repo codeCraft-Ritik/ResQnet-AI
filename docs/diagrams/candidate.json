@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "ResQNet AI — High-Level Runtime Architecture",
+    "subtitle": "Real-time coastal disaster intelligence, multi-source evidence fusion, explainable risk, and safer evacuation runtime",
+    "output": ".archify/architecture-runtime-architecture-20260929-161600/runtime-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "citizen_pwa",
+      "type": "frontend",
+      "label": "Citizen SOS & PWA",
+      "sublabel": "Offline-First Mobile App",
+      "tag": "PWA / Service Worker",
+      "pos": [80, 200],
+      "size": [180, 64]
+    },
+    {
+      "id": "ops_hud",
+      "type": "frontend",
+      "label": "Tactical Operations HUD",
+      "sublabel": "NDRF / MoES Command Web",
+      "tag": "React / Liquid Glass",
+      "pos": [80, 360],
+      "size": [180, 64]
+    },
+    {
+      "id": "auth_svc",
+      "type": "security",
+      "label": "Role-Based Access Control",
+      "sublabel": "NDRF / Citizen / Analyst RBAC",
+      "tag": "JWT & Security",
+      "pos": [390, 120],
+      "size": [180, 64]
+    },
+    {
+      "id": "api_gw",
+      "type": "security",
+      "label": "API & WebSocket Gateway",
+      "sublabel": "Vite Proxy / Nginx :8000",
+      "tag": "Reverse Proxy",
+      "pos": [390, 280],
+      "size": [180, 64]
+    },
+    {
+      "id": "fastapi_core",
+      "type": "backend",
+      "label": "FastAPI Core Engine",
+      "sublabel": "Asynchronous REST & WSS",
+      "tag": "Python 3.11+",
+      "pos": [740, 280],
+      "size": [190, 64]
+    },
+    {
+      "id": "spatial_db",
+      "type": "database",
+      "label": "Geo-Spatial Data Store",
+      "sublabel": "SQLite-Spatial / PostGIS",
+      "tag": "Spatial Indexing",
+      "pos": [740, 460],
+      "size": [190, 64]
+    },
+    {
+      "id": "nlp_vision",
+      "type": "backend",
+      "label": "NLP & Vision Triage",
+      "sublabel": "Multilingual Distress & Damage",
+      "tag": "Zero-Shot + Vision",
+      "pos": [1100, 120],
+      "size": [200, 64]
+    },
+    {
+      "id": "fusion_xai",
+      "type": "backend",
+      "label": "Bayesian Fusion & XAI",
+      "sublabel": "Evidence Matrix & SHAP Attribution",
+      "tag": "Consensus Engine",
+      "pos": [1100, 280],
+      "size": [200, 64]
+    },
+    {
+      "id": "route_engine",
+      "type": "backend",
+      "label": "A* Safer Route Pathfinder",
+      "sublabel": "Hazard Avoidance Evacuation",
+      "tag": "Shelter Assignment",
+      "pos": [1100, 460],
+      "size": [200, 64]
+    },
+    {
+      "id": "sat_feeds",
+      "type": "external",
+      "label": "MOSDAC & Sentinel SAR",
+      "sublabel": "INSAT-3DR & SAR Inundation",
+      "tag": "ISRO / Copernicus",
+      "pos": [1470, 120],
+      "size": [220, 64]
+    },
+    {
+      "id": "sensor_feeds",
+      "type": "external",
+      "label": "IMD & INCOIS Ingestion",
+      "sublabel": "Radar & Moored Buoy Feeds",
+      "tag": "Doppler & Ocean Buoys",
+      "pos": [1470, 280],
+      "size": [220, 64]
+    },
+    {
+      "id": "cbs_relay",
+      "type": "external",
+      "label": "Cell Broadcast & Relays",
+      "sublabel": "Zero-Cost SMS & Relays",
+      "tag": "Cell Broadcast (CBS)",
+      "pos": [1470, 460],
+      "size": [220, 64]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Client Edge & Field Operations",
+      "wraps": ["citizen_pwa", "ops_hud"]
+    },
+    {
+      "kind": "security-group",
+      "label": "ResQNet AI Mission Core Runtime (FastAPI & ML Subsystems)",
+      "wraps": ["auth_svc", "api_gw", "fastapi_core", "spatial_db", "nlp_vision", "fusion_xai", "route_engine"]
+    },
+    {
+      "kind": "region",
+      "label": "National Telemetry Ingestion & Public Dispatch",
+      "wraps": ["sat_feeds", "sensor_feeds", "cbs_relay"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "pwa-to-gw",
+      "from": "citizen_pwa",
+      "to": "api_gw",
+      "label": "HTTPS SOS & Offline Sync",
+      "variant": "emphasis"
+    },
+    {
+      "id": "hud-to-gw",
+      "from": "ops_hud",
+      "to": "api_gw",
+      "label": "WSS Live Telemetry Stream",
+      "variant": "emphasis"
+    },
+    {
+      "id": "gw-to-auth",
+      "from": "api_gw",
+      "to": "auth_svc",
+      "label": "Validate RBAC",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "gw-to-core",
+      "from": "api_gw",
+      "to": "fastapi_core",
+      "label": "Reverse Proxy Dispatch",
+      "variant": "default"
+    },
+    {
+      "id": "core-to-db",
+      "from": "fastapi_core",
+      "to": "spatial_db",
+      "label": "Spatial CRUD & Telemetry",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "core-to-nlp",
+      "from": "fastapi_core",
+      "to": "nlp_vision",
+      "label": "Triage Field Distress"
+    },
+    {
+      "id": "core-to-fusion",
+      "from": "fastapi_core",
+      "to": "fusion_xai",
+      "label": "Trigger Consensus & SHAP",
+      "variant": "emphasis"
+    },
+    {
+      "id": "sat-to-nlp",
+      "from": "sat_feeds",
+      "to": "nlp_vision",
+      "label": "SAR Inundation & Imagery",
+      "fromSide": "left",
+      "toSide": "right",
+      "variant": "emphasis"
+    },
+    {
+      "id": "sensors-to-fusion",
+      "from": "sensor_feeds",
+      "to": "fusion_xai",
+      "label": "Radar & Buoy Telemetry",
+      "fromSide": "left",
+      "toSide": "right",
+      "variant": "emphasis"
+    },
+    {
+      "id": "fusion-to-routing",
+      "from": "fusion_xai",
+      "to": "route_engine",
+      "label": "Evacuation Risk Surface",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "variant": "emphasis"
+    },
+    {
+      "id": "db-to-routing",
+      "from": "spatial_db",
+      "to": "route_engine",
+      "label": "Roads & Safe Shelters",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "routing-to-cbs",
+      "from": "route_engine",
+      "to": "cbs_relay",
+      "label": "Dispatch Evacuation Route",
+      "fromSide": "right",
+      "toSide": "left",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Client Edge & Resilient Access",
+      "items": [
+        "PWA Service Worker caches shelters, offline maps, and first-aid instructions",
+        "Tactical Operations HUD provides real-time geospatial layer controls and 6-KPI command bar"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Core Intelligence & Evaluation",
+      "items": [
+        "Bayesian Evidence Fusion achieves 92% actionable certainty across heterogeneous feeds",
+        "Explainable AI (SHAP) decomposes risk score into transparent physical factors",
+        "A* hazard pathfinding routes around submerged polygons to nearest available shelter"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Ingestion & Zero-Cost Dispatch",
+      "items": [
+        "Continuous ingestion from IMD Doppler radar, INCOIS moored buoys, MOSDAC, and Sentinel SAR",
+        "Zero-Cost Public Cell Broadcast (CBS) and device SMS/WhatsApp relays for offline coastal populations"
+      ]
+    }
+  ]
+}

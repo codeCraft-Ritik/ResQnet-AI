@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: resqnet-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATA_MODE=demo
+      - DATABASE_URL=postgresql://resqnet:resqnet_secret@postgis:5432/resqnet_db
+      - REDIS_URL=redis://redis:6379/0
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      - ./uploads:/app/uploads
+      - ./data:/app/data
+    depends_on:
+      - postgis
+      - redis
+    restart: unless-stopped
+
+  postgis:
+    image: postgis/postgis:15-3.3
+    container_name: resqnet-postgis
+    environment:
+      - POSTGRES_USER=resqnet
+      - POSTGRES_PASSWORD=resqnet_secret
+      - POSTGRES_DB=resqnet_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: resqnet-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  postgis_data:

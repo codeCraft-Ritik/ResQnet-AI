@@ -1,0 +1,310 @@
+{
+  "region": {
+    "name": "Puri Coastal Zone, Odisha",
+    "country": "India",
+    "center": [19.8135, 85.8312],
+    "bbox": [85.75, 19.75, 85.92, 19.88],
+    "population_exposed_baseline": 215000,
+    "vulnerability_index": 0.78,
+    "last_updated": "2025-05-18T10:30:00Z"
+  },
+  "official_warnings": [
+    {
+      "id": "WARN-IMD-2025-042",
+      "source": "IMD (India Meteorological Department)",
+      "is_official": true,
+      "warning_type": "COASTAL_WEATHER_WARNING",
+      "severity_level": "ORANGE",
+      "headline": "Squally weather with wind speed 60-70 kmph gusting to 80 kmph likely along Odisha coast.",
+      "description": "Deep depression over West-central Bay of Bengal. Sea condition will be rough to very rough. Fishermen are strictly advised not to venture into deep sea or coastal waters of Puri and adjacent districts.",
+      "issued_at": "2025-05-18T06:00:00Z",
+      "valid_until": "2025-05-19T18:00:00Z",
+      "coordinates": [19.8135, 85.8312],
+      "affected_area": "Puri, Jagatsinghpur, Ganjam coastal belt"
+    },
+    {
+      "id": "WARN-INCOIS-2025-018",
+      "source": "INCOIS (Indian National Centre for Ocean Information Services)",
+      "is_official": true,
+      "warning_type": "HIGH_WAVE_ALERT",
+      "severity_level": "ORANGE",
+      "headline": "High Wave Alert for Coastal Odisha: 3.8m to 4.8m Wave Surge",
+      "description": "High waves in the range of 3.8 to 4.8 meters are forecasted along the coast of Odisha from Gopalpur to Chandipur. Surface current speeds vary between 55-85 cm/sec. Beachgoers and recreational coastal activities prohibited.",
+      "issued_at": "2025-05-18T07:30:00Z",
+      "valid_until": "2025-05-19T12:00:00Z",
+      "coordinates": [19.805, 85.82],
+      "affected_area": "Odisha shoreline"
+    }
+  ],
+  "weather_observations": [
+    {
+      "station_id": "IMD-PURI-42971",
+      "station_name": "Puri Coastal Weather Observatory",
+      "source": "IMD",
+      "is_simulated": false,
+      "lat": 19.809,
+      "lng": 85.823,
+      "timestamp": "2025-05-18T10:15:00Z",
+      "temperature_c": 27.4,
+      "humidity_pct": 92,
+      "wind_speed_kmh": 68.5,
+      "wind_gust_kmh": 79.2,
+      "wind_direction": "ESE",
+      "rainfall_mm_hr": 44.6,
+      "pressure_hpa": 994.2,
+      "trend": "FALLING_PRESSURE"
+    }
+  ],
+  "ocean_observations": [
+    {
+      "buoy_id": "INCOIS-BOB-04",
+      "location_name": "Bay of Bengal Coastal Buoy (Off Puri)",
+      "source": "INCOIS",
+      "is_simulated": false,
+      "lat": 19.74,
+      "lng": 85.86,
+      "timestamp": "2025-05-18T10:20:00Z",
+      "wave_height_m": 4.4,
+      "wave_period_s": 10.8,
+      "swell_height_m": 3.7,
+      "swell_direction": "SE",
+      "sea_surface_temp_c": 29.6,
+      "tide_surge_anomaly_m": 1.45,
+      "ocean_state": "ROUGH"
+    }
+  ],
+  "satellite_observations": [
+    {
+      "id": "SAT-INSAT3DR-QPE-20250518",
+      "satellite": "INSAT-3DR",
+      "provider": "MOSDAC / ISRO",
+      "product": "Quantitative Precipitation Estimation (QPE)",
+      "timestamp": "2025-05-18T09:45:00Z",
+      "data_latency_mins": 35,
+      "is_simulated": false,
+      "cloud_cover_pct": 94,
+      "max_rain_intensity_mm": 52.0,
+      "coverage_box": [85.6, 19.6, 86.1, 20.0]
+    },
+    {
+      "id": "SAT-SENTINEL1-SAR-FLOOD",
+      "satellite": "Sentinel-1 SAR",
+      "provider": "Copernicus Data Space",
+      "product": "Water Inundation Extent",
+      "timestamp": "2025-05-18T08:15:00Z",
+      "data_latency_mins": 125,
+      "is_simulated": false,
+      "flooded_area_sqkm": 3.85,
+      "confidence": 0.89
+    }
+  ],
+  "hazard_events": [
+    {
+      "id": "HAZ-PURI-001",
+      "title": "Severe Coastal Inundation & High Wave Breaching",
+      "hazard_type": "COASTAL_FLOODING",
+      "lat": 19.8085,
+      "lng": 85.8245,
+      "status": "ACTIVE",
+      "severity": "CRITICAL",
+      "ai_risk_score": 86,
+      "ai_confidence": 92,
+      "is_simulated": false,
+      "perimeter_coords": [
+        [19.815, 85.815],
+        [19.822, 85.828],
+        [19.812, 85.845],
+        [19.801, 85.836],
+        [19.805, 85.818],
+        [19.815, 85.815]
+      ],
+      "affected_population_estimate": 14200,
+      "critical_infrastructure_threatened": [
+        "Puri Marine Drive Road",
+        "Pentakota Fishermen Settlement",
+        "Swargadwar Beach Front"
+      ],
+      "trend": "ESCALATING",
+      "top_contributing_factors": {
+        "Wave Surge (4.4m)": 0.28,
+        "Wind Velocity (68 km/h)": 0.22,
+        "Heavy Rainfall (44 mm/h)": 0.18,
+        "Low Coastal Elevation (<3m)": 0.15,
+        "Citizen Report Surge (+75%)": 0.11,
+        "Historical Storm Track Match": 0.06
+      }
+    }
+  ],
+  "citizen_reports": [
+    {
+      "id": "REP-2025-001",
+      "lat": 19.8062,
+      "lng": 85.8214,
+      "hazard_type": "High waves & road flooding",
+      "description": "High waves breached the sea wall near Light House Road. Water is surging across the street up to knee height. 3 fishing boats damaged.",
+      "timestamp": "2025-05-18T10:18:00Z",
+      "status": "CORROBORATED",
+      "confidence": 0.91,
+      "source": "CITIZEN_APP",
+      "is_simulated": false,
+      "media_type": "IMAGE",
+      "media_label": "Water intrusion across coastal road with broken barrier",
+      "people_affected": 35
+    },
+    {
+      "id": "REP-2025-002",
+      "lat": 19.8115,
+      "lng": 85.8352,
+      "hazard_type": "Coastal flooding & waterlogging",
+      "description": "Pentakota fish landing area is completely submerged. Water entering low-lying houses. Families moving towards shelter.",
+      "timestamp": "2025-05-18T10:24:00Z",
+      "status": "VERIFIED",
+      "confidence": 0.95,
+      "source": "CITIZEN_APP",
+      "is_simulated": false,
+      "media_type": "IMAGE",
+      "media_label": "Submerged shacks and boats anchored under high waves",
+      "people_affected": 120
+    },
+    {
+      "id": "REP-2025-003",
+      "lat": 19.824,
+      "lng": 85.812,
+      "hazard_type": "Tree fall & electrical line hazard",
+      "description": "Strong squall uprooted a banyan tree blocking access route near VIP Road. Wire sparked.",
+      "timestamp": "2025-05-18T10:05:00Z",
+      "status": "UNDER_REVIEW",
+      "confidence": 0.74,
+      "source": "CITIZEN_APP",
+      "is_simulated": false,
+      "media_type": "TEXT",
+      "media_label": "Road blockage report",
+      "people_affected": 10
+    }
+  ],
+  "social_signals": [
+    {
+      "id": "SOC-TW-01",
+      "source": "X_SIMULATED",
+      "timestamp": "2025-05-18T10:22:00Z",
+      "text": "Huge waves crashing at Puri Swargadwar right now! Sea water entered shops on Marine Drive. Stay safe everyone! #PuriFloods #BayOfBengalSurge",
+      "sentiment": "PANIC_URGENT",
+      "hazard_keywords": ["huge waves", "sea water entered", "floods", "surge"],
+      "extracted_location": "Puri Swargadwar",
+      "lat": 19.805,
+      "lng": 85.823,
+      "is_simulated": false
+    },
+    {
+      "id": "SOC-TW-02",
+      "source": "X_SIMULATED",
+      "timestamp": "2025-05-18T10:26:00Z",
+      "text": "Odisha Disaster Rapid Action Force (ODRAF) deployed near Pentakota beach Puri. Wind speeds picking up fast. #OdishaWeather",
+      "sentiment": "INFORMATIONAL",
+      "hazard_keywords": ["ODRAF", "wind speeds picking up"],
+      "extracted_location": "Pentakota beach Puri",
+      "lat": 19.812,
+      "lng": 85.836,
+      "is_simulated": false
+    }
+  ],
+  "news_signals": [
+    {
+      "id": "NEWS-GDELT-01",
+      "source": "GDELT_SIMULATED",
+      "timestamp": "2025-05-18T09:30:00Z",
+      "title": "Depression over Bay of Bengal triggers rough sea and high swell along Odisha coastline",
+      "source_outlet": "East Coast Maritime Dispatch",
+      "hazard_type": "SWELL_SURGE",
+      "lat": 19.81,
+      "lng": 85.83,
+      "is_simulated": false
+    }
+  ],
+  "shelters": [
+    {
+      "id": "SHL-PURI-01",
+      "name": "Puri District Sports Complex Relief Shelter",
+      "type": "GOVERNMENT_STORM_SHELTER",
+      "lat": 19.8265,
+      "lng": 85.8285,
+      "capacity_total": 2500,
+      "occupancy_current": 680,
+      "available_beds": 1820,
+      "elevation_m": 8.5,
+      "has_medical_unit": true,
+      "has_generator": true,
+      "food_water_days": 6,
+      "contact_phone": "+91-6752-223401",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "SHL-PURI-02",
+      "name": "Pentakota Multi-Purpose Cyclone Shelter",
+      "type": "CYCLONE_SHELTER",
+      "lat": 19.8182,
+      "lng": 85.8415,
+      "capacity_total": 1200,
+      "occupancy_current": 540,
+      "available_beds": 660,
+      "elevation_m": 7.2,
+      "has_medical_unit": true,
+      "has_generator": true,
+      "food_water_days": 4,
+      "contact_phone": "+91-6752-223402",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "SHL-PURI-03",
+      "name": "Jagannath Ballav Community Relief Hub",
+      "type": "TRANSIT_SHELTER",
+      "lat": 19.8198,
+      "lng": 85.8210,
+      "capacity_total": 1800,
+      "occupancy_current": 310,
+      "available_beds": 1490,
+      "elevation_m": 9.8,
+      "has_medical_unit": false,
+      "has_generator": true,
+      "food_water_days": 5,
+      "contact_phone": "+91-6752-223403",
+      "status": "OPERATIONAL"
+    }
+  ],
+  "roads": [
+    {
+      "id": "RD-01",
+      "name": "Puri Marine Drive",
+      "status": "FLOODED_IMPASSABLE",
+      "risk_score": 95,
+      "path": [
+        [19.802, 85.818],
+        [19.806, 85.822],
+        [19.812, 85.831],
+        [19.818, 85.842]
+      ]
+    },
+    {
+      "id": "RD-02",
+      "name": "Grand Road (Badadanda)",
+      "status": "OPEN_SAFE",
+      "risk_score": 15,
+      "path": [
+        [19.808, 85.819],
+        [19.816, 85.825],
+        [19.824, 85.831]
+      ]
+    },
+    {
+      "id": "RD-03",
+      "name": "VIP Road Inland Bypass",
+      "status": "OPEN_SAFE",
+      "risk_score": 20,
+      "path": [
+        [19.814, 85.812],
+        [19.822, 85.821],
+        [19.828, 85.830]
+      ]
+    }
+  ]
+}
